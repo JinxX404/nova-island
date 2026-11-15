@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova widget</title>
+  <link rel="stylesheet" href="../themes.css">
+  <link rel="stylesheet" href="widgets.css">
+  <link rel="stylesheet" href="desktop.css">
+  <link rel="stylesheet" href="inline-editor.css">
+</head>
+<body data-theme="original">
+  <main id="shell">
+    <div id="scroll" tabindex="0" aria-label="Widget content" aria-describedby="instructions"><article id="card" class="widget-card"></article></div>
+    <button id="menu" title="Widget options" aria-label="Widget options" aria-haspopup="menu">⋯</button>
+    <button id="resize" title="Drag to resize. Arrow keys resize; Shift makes fine adjustments." aria-label="Resize widget with drag or arrow keys"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12l8-8M9 12l3-3"/></svg></button>
+    <div id="inline" hidden></div>
+    <span id="instructions" class="sr-only">Drag the card to move it. Double-click or press F2 to edit content. Alt and arrow keys move it. Use Widget options for more actions.</span>
+    <p id="move-hint" role="status" hidden>Arrow keys move · Enter or Escape finishes</p>
+    <p id="error" role="alert" hidden></p>
+  </main>
+  <script src="model.js"></script>
+  <script src="render.js"></script>
+  <script src="inline-editor.js"></script>
+  <script src="desktop.js"></script>
+</body>
+</html>

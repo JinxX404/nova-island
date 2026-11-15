@@ -1,6 +1,6 @@
 // The Settings window: a normal, focusable window (the island itself never takes focus).
 const path = require('path');
-const { BrowserWindow, ipcMain } = require('electron');
+const { BrowserWindow, ipcMain, screen } = require('electron');
 
 let win = null;
 
@@ -13,11 +13,12 @@ function open(page) {
     if (page) send('show-page', page);
     return;
   }
+  const area = screen.getPrimaryDisplay().workArea;
   win = new BrowserWindow({
-    width: 760,
-    height: 560,
-    minWidth: 640,
-    minHeight: 480,
+    width: Math.min(760, area.width),
+    height: Math.min(560, area.height),
+    minWidth: Math.min(640, area.width),
+    minHeight: Math.min(480, area.height),
     frame: false,
     show: false,
     backgroundColor: '#0f0f15',
@@ -50,4 +51,5 @@ ipcMain.on('prefs-window', (e, action) => {
   else if (action === 'minimize') w.minimize();
 });
 
-module.exports = { open, send };
+const owns = (contents) => !!win && !win.isDestroyed() && win.webContents === contents;
+module.exports = { open, send, owns };

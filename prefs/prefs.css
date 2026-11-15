@@ -22,6 +22,12 @@ body {
 }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 :focus-visible { outline: 2px solid rgba(111, 140, 255, .9); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .body .side { width: 150px; padding-inline: 6px; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: #ffffff30 transparent; }
+  .body .content { padding: 14px 12px; }
+  .body .side a { height: auto; min-height: 32px; flex-shrink: 0; padding-block: 6px; gap: 8px; overflow-wrap: anywhere; }
+  .body .side-foot, .body .side-social { display: none; }
+}
 svg { fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 [hidden] { display: none !important; }
 input { font: inherit; color: inherit; }

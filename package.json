@@ -4,6 +4,8 @@
   "description": "A living island for your Windows desktop",
   "main": "nova.js",
   "scripts": {
+    "test": "node --test --test-reporter=tap tests/widgets/*.test.cjs",
+    "test:widgets:electron": "node tests/widgets/run-electron.cjs",
     "start": "electron .",
     "dist": "electron-builder --win nsis",
     "dist:portable": "electron-builder --win portable",
@@ -45,6 +47,7 @@
       "!nova-island-plugins/**",
       "!tools/**",
       "!scripts/**",
+      "!tests/**",
       "!news.json",
       "!build/appx/**",
       "!store/**"

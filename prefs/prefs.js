@@ -294,6 +294,7 @@ function remembered() {
 const links = [...$$('.side a')];
 function showPage(id) {
   if (!document.getElementById(id)) id = 'general';
+  if (id !== 'widgets') window.WidgetSettings?.cancel();
   $$('.page').forEach((p) => p.classList.toggle('on', p.id === id));
   links.forEach((a) => a.classList.toggle('on', a.dataset.page === id));
   $('#content').scrollTop = 0;
@@ -453,7 +454,7 @@ api.onShowPage((page) => {
   const [id, plug] = String(page).split(':');
   clearSearch();
   showPage(id);
-  if (plug) setTimeout(() => document.querySelector(`[data-plug="${CSS.escape(plug)}"]`)?.scrollIntoView({ block: 'center' }), 300);
+  if (plug && id === 'plugins') setTimeout(() => document.querySelector(`[data-plug="${CSS.escape(plug)}"]`)?.scrollIntoView({ block: 'center' }), 300);
 });
 
 api.onFeatures(showFeatures);

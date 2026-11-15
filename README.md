@@ -54,6 +54,20 @@ Turn on only what you need from one simple settings window. Vertical on the scre
 
 ![Settings](promo/en/07-settings.png)
 
+### Desktop widgets
+
+Add desktop cards from Settings → Widgets. Custom text supports titles, multiline notes,
+lists, **bold** and *italic*, with Note, Statement and Label presets. Cards wrap and grow
+downward, or use a fixed size with scrolling. Each instance has its own typography, colors,
+opacity, padding, position and size. Preview changes before saving, duplicate a card, hide it,
+or lock its position. Drag an unlocked card to move it, or use its corner grip to resize.
+Double-click the card or press F2 to edit content inside it, with Save and Cancel.
+Right-click or open the small options menu for appearance, duplication, hiding and locking.
+
+Countdown, Quick links, Image card and Goal tracker use the same customization controls.
+Images are stored with the widget, and links can open websites or apps selected on your PC.
+Goal progress can be adjusted directly with the + and − buttons.
+
 ## Install
 
 1. Download **Nova Island** from [the website](https://nova-tech-kit.github.io/nova-island/), or get it from the [Microsoft Store](https://apps.microsoft.com/detail/9PHV3N1V2H7M).

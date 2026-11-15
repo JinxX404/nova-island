@@ -35,4 +35,10 @@ contextBridge.exposeInMainWorld('prefs', {
   enablePlugin: (id, on) => ipcRenderer.send('plugin-enable', id, on),
   pluginSet: (id, key, value) => ipcRenderer.send('plugin-setting', id, key, value),
   onShowPage: on('show-page'),
+  widgets: () => ipcRenderer.invoke('widgets-get'),
+  saveWidget: (widget) => ipcRenderer.invoke('widgets-save', widget),
+  widgetAction: (id, action) => ipcRenderer.invoke('widgets-action', id, action),
+  pickWidgetImage: () => ipcRenderer.invoke('widgets-pick-image'),
+  pickWidgetApp: () => ipcRenderer.invoke('widgets-pick-app'),
+  onWidgets: on('widgets'),
 });

@@ -27,6 +27,7 @@ const prefsWindow = require('./prefs-window');
 const updater = require('./updater');
 const news = require('./news');
 const plugins = require('./plugins');
+const widgets = require('./widgets');
 
 // Keep our own windows (the mini player) out of Windows' media sessions, so the island and
 // the per-app commands keep targeting the browser tab rather than the mini player.
@@ -954,6 +955,7 @@ function appMenu() {
     }]),
     { label: 'Expand / collapse   Ctrl+Alt+I', click: () => send('toggle') },
     { label: 'Settings…', click: () => prefsWindow.open() },
+    { label: 'Widgets…', click: () => prefsWindow.open('widgets') },
     { type: 'separator' },
     { label: 'Quit', click: () => app.quit() },
   ]);
@@ -1122,6 +1124,7 @@ features.onChange((f) => {
   }
   send('features', islandFeatures());
   prefsWindow.send('features', f);
+  widgets.updateFeatures(f);
   downloads.setEnabled(f.downloads);
   downloads.setFolders(f.folderDownloads);
   privacy.setEnabled(f.privacyDots);
@@ -1201,6 +1204,12 @@ app.whenReady().then(() => {
   if (process.argv.includes('--setup')) runSetup();
   createWindow();
   buildTray();
+  widgets.start({
+    getFeatures: features.get,
+    openSettings: (id) => prefsWindow.open(id ? `widgets:${id}` : 'widgets'),
+    notifyPrefs: (store) => prefsWindow.send('widgets', store),
+    isPrefs: prefsWindow.owns,
+  });
   startMedia();
   system.start(send);
   applyPerf(); // saved performance options slow the background work from the start
@@ -1264,6 +1273,7 @@ app.whenReady().then(() => {
 
 app.on('before-quit', () => {
   quitting = true;
+  widgets.stop();
   globalShortcut.unregisterAll();
   if (media) media.kill();
 });

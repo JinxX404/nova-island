@@ -1,0 +1,129 @@
+/* Nova Island — Settings > Widgets (page chrome for prefs/widgets.js).
+   The card itself is drawn by widgets/widgets.css; this file only styles the
+   manager list, the detached editor and its controls. Scoped under #widgets
+   so it can never leak into other Settings pages. */
+
+/* ---- manager list ---- */
+#widgets .wg-count { margin-left: 8px; font-weight: 450; letter-spacing: 0; text-transform: none; color: var(--text-3); }
+#widgets .wg-empty { padding: 18px 14px; color: var(--text-3); font-size: 12.5px; }
+#widgets .wg-kind-ico {
+  flex: none; width: 30px; height: 30px; border-radius: 9px; margin-right: 2px;
+  display: grid; place-items: center; background: rgba(255, 255, 255, .06); color: var(--text-2);
+}
+#widgets .wg-kind-ico svg { width: 16px; height: 16px; }
+#widgets .row .btns { align-items: center; flex-wrap: wrap; }
+#widgets #wg-rows .row { flex-wrap: wrap; }
+#widgets #wg-rows .txt { flex: 1; flex-basis: 140px; overflow-wrap: anywhere; }
+#widgets .btn.sm { height: 26px; padding: 0 10px; font-size: 12px; }
+#widgets .wg-limit { color: #ffb340; }
+
+/* ---- add chooser ---- */
+#widgets .wg-choose { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 8px; margin-top: 10px; }
+#widgets .wg-addchip {
+  display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; border-radius: 11px;
+  background: var(--panel); box-shadow: inset 0 0 0 1px var(--stroke); color: var(--text-2);
+  font-weight: 600; font-size: 13px; text-align: left;
+}
+#widgets .wg-addchip svg { width: 17px; height: 17px; flex: none; }
+#widgets .wg-addchip:hover:not(:disabled) { background: rgba(255, 255, 255, .07); color: #fff; }
+#widgets .wg-addchip:disabled { opacity: .4; cursor: default; }
+
+/* ---- editor frame ---- */
+#widgets .wg-preview-zone { background: var(--panel); border-radius: 12px; box-shadow: inset 0 0 0 1px var(--stroke); padding: 14px; }
+#widgets .wg-preview-view { overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+#widgets .wg-preview-view::-webkit-scrollbar { height: 8px; }
+#widgets .wg-preview-view::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .12); border-radius: 4px; }
+#widgets .wg-holder { margin: 0 auto; min-width: 180px; max-height: 400px; overflow-y: auto; }
+#widgets .wg-preview-hint { margin-top: 10px; color: var(--text-3); font-size: 11.5px; }
+
+#widgets fieldset.wg-fs { border: 0; margin: 0 0 16px; padding: 0; min-width: 0; }
+#widgets .wg-fs legend { font-size: 11.5px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); padding: 0 4px; margin-bottom: 8px; }
+#widgets .wg-fs .card { padding: 6px 0 8px; }
+#widgets .wg-fs .row { min-height: 44px; padding: 6px 14px; gap: 12px; flex-wrap: wrap; }
+#widgets .wg-fs .row + .row { box-shadow: inset 0 1px 0 var(--stroke); }
+#widgets .wg-fs b { font-weight: 550; }
+
+/* stacked fields (title, body, caption…) */
+#widgets .wg-field { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; }
+#widgets .wg-field + .wg-field, #widgets .wg-field + .row { box-shadow: inset 0 1px 0 var(--stroke); }
+#widgets .wg-field > b { font-weight: 550; font-size: 13.5px; }
+#widgets .wg-in {
+  width: 100%; min-width: 0; height: 32px; padding: 0 11px; border: 0; border-radius: 8px; outline: none;
+  background: rgba(0, 0, 0, .3); box-shadow: inset 0 0 0 1px var(--stroke); color: #fff; font-size: 13px;
+}
+#widgets .wg-in:focus { box-shadow: inset 0 0 0 1px rgba(111, 140, 255, .7); }
+#widgets .wg-in.wg-bad, #widgets .wg-bad .wg-in { box-shadow: inset 0 0 0 1px rgba(255, 69, 58, .75); }
+#widgets textarea.wg-in { height: auto; min-height: 116px; max-height: 300px; padding: 8px 11px; resize: vertical; line-height: 1.5; }
+#widgets .wg-num { width: 96px; flex: none; text-align: start; }
+#widgets .wg-numwrap { display: flex; align-items: center; gap: 8px; flex: none; }
+#widgets .wg-hint { padding: 0 14px 8px; color: var(--text-3); font-size: 11.5px; }
+#widgets .wg-field small { color: var(--text-3); font-size: 11.5px; }
+
+/* color wells */
+#widgets .wg-colorset { display: flex; align-items: center; gap: 8px; flex: none; }
+#widgets .wg-cwell { display: inline-flex; flex: none; }
+#widgets .wg-cwell input[type="color"] {
+  width: 36px; height: 26px; padding: 0; border: 0; border-radius: 7px; background: none; cursor: pointer;
+}
+#widgets .wg-cwell input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+#widgets .wg-cwell input[type="color"]::-webkit-color-swatch { border: 1px solid rgba(255, 255, 255, .25); border-radius: 7px; }
+#widgets .wg-themetag {
+  flex: none; height: 26px; padding: 0 10px; border-radius: 8px; display: inline-flex; align-items: center;
+  font-size: 12px; font-weight: 600; color: var(--text-3); background: rgba(255, 255, 255, .06);
+}
+#widgets .wg-themebtn { height: 26px; padding: 0 10px; font-size: 12px; }
+
+/* quick links item editor */
+#widgets .wg-linkit { display: flex; flex-direction: column; gap: 8px; padding: 10px 14px; }
+#widgets .wg-linkit + .wg-linkit, #widgets .wg-linkit:first-child { box-shadow: inset 0 1px 0 var(--stroke); }
+#widgets .wg-linkit:first-child { box-shadow: none; }
+#widgets .wg-linkit-top { display: flex; align-items: center; gap: 8px; }
+#widgets .wg-ico-in { flex: none; width: 64px; text-align: center; }
+#widgets .wg-linkit-top .wg-in { flex: 1; min-width: 0; }
+#widgets .wg-linkit-mid { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#widgets .wg-target { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; }
+#widgets .wg-path {
+  flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; color: var(--text-2); direction: ltr; text-align: left;
+}
+#widgets .wg-mini {
+  flex: none; width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center;
+  font-size: 13px; color: var(--text-2); background: rgba(255, 255, 255, .08);
+}
+#widgets .wg-mini:hover:not(:disabled) { background: rgba(255, 255, 255, .14); color: #fff; }
+#widgets .wg-mini:disabled { opacity: .3; cursor: default; }
+#widgets .wg-mini.danger:hover { background: rgba(255, 69, 58, .2); color: #ff8a80; }
+#widgets .wg-items-foot { display: flex; align-items: center; gap: 8px; padding: 10px 14px 2px; box-shadow: inset 0 1px 0 var(--stroke); }
+#widgets .wg-items-foot small { margin-left: auto; color: var(--text-3); font-size: 11.5px; }
+
+/* image row */
+#widgets .wg-imgrow { display: flex; align-items: center; gap: 10px; padding: 10px 14px; }
+#widgets .wg-imgrow + .row, #widgets .row + .wg-imgrow { box-shadow: inset 0 1px 0 var(--stroke); }
+#widgets .wg-thumb { flex: none; width: 46px; height: 32px; border-radius: 7px; object-fit: cover; box-shadow: inset 0 0 0 1px var(--stroke); background: rgba(0, 0, 0, .3); }
+#widgets .wg-noimg { flex: none; width: 46px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: var(--text-3); font-size: 10.5px; background: rgba(0, 0, 0, .3); box-shadow: inset 0 0 0 1px var(--stroke); }
+
+/* error + actions */
+#widgets .wg-error { margin: 10px 4px 0; color: #ff8a80; font-size: 12.5px; font-weight: 550; }
+#widgets .wg-edactions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }
+#widgets .wg-edactions button[disabled] { opacity: .55; cursor: default; }
+
+/* status pill (independent from the shared #saved pill) */
+.wg-status {
+  position: fixed; right: 22px; bottom: 16px; z-index: 6; opacity: 0; transform: translateY(12px); pointer-events: none;
+  padding: 7px 14px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  background: rgba(48, 209, 88, .16); color: var(--green); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, .3);
+  transition: opacity .25s, transform .35s var(--spring);
+}
+.wg-status.on { opacity: 1; transform: translateY(0); }
+.wg-status.bad { background: rgba(255, 69, 58, .15); color: #ff8a80; box-shadow: inset 0 0 0 1px rgba(255, 69, 58, .3); }
+body.no-anim *, body.no-anim *::before, body.no-anim *::after { animation: none !important; transition: none !important; }
+
+/* narrow pane: let rows and segments wrap instead of clipping */
+@media (max-width: 560px) {
+  #widgets .wg-fs .row { flex-wrap: wrap; }
+  #widgets .row .btns { flex-wrap: wrap; }
+  #widgets .seg { flex-wrap: wrap; }
+  #widgets .seg, #widgets .wg-numwrap, #widgets .wg-colorset { max-width: 100%; flex-wrap: wrap; }
+  #widgets .wg-linkit-top { flex-wrap: wrap; }
+  #widgets .wg-choose { grid-template-columns: 1fr 1fr; }
+}

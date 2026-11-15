@@ -1,0 +1,20 @@
+.widget-inline-editor { display: flex; flex-direction: column; gap: 14px; padding: 18px; min-height: 100%; color: var(--th-text, #f4f4f7); font-size: 13px; text-align: start; }
+.widget-inline-editor h2 { margin: 0; font-size: 16px; font-weight: 600; }
+.widget-inline-editor .wie-fields { display: grid; gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.widget-inline-editor .wie-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.widget-inline-editor .wie-field > span { color: var(--th-soft, #b8b8c5); }
+.widget-inline-editor input, .widget-inline-editor textarea, .widget-inline-editor select { box-sizing: border-box; width: 100%; min-width: 0; border: 1px solid var(--th-line, #ffffff26); border-radius: 9px; background: var(--th-bg, var(--th-solid, #191921)); color: var(--th-text, #f4f4f7); padding: 8px 10px; font: inherit; line-height: 1.5; user-select: text; }
+.widget-inline-editor textarea { resize: vertical; min-height: 110px; max-height: 260px; }
+.widget-inline-editor .wie-pair { display: flex; flex-wrap: wrap; gap: 10px; }
+.widget-inline-editor .wie-pair > * { flex: 1 1 100px; min-width: 0; }
+.widget-inline-editor .wie-hint, .widget-inline-editor .wie-path { margin: 0; font-size: 11px; line-height: 1.5; color: var(--th-soft, #b8b8c5); overflow-wrap: anywhere; }
+.widget-inline-editor .wie-links { display: grid; gap: 12px; }
+.widget-inline-editor .wie-link { display: grid; gap: 8px; padding: 10px; border: 1px solid var(--th-line, #ffffff26); border-radius: 10px; }
+.widget-inline-editor button { min-height: 32px; border: 1px solid var(--th-line, #ffffff26); border-radius: 9px; padding: 6px 12px; background: #ffffff0c; color: inherit; }
+.widget-inline-editor .wie-actions { display: flex; justify-content: flex-end; gap: 8px; position: sticky; bottom: 0; padding: 8px 0 2px; margin-top: auto; background: var(--th-bg, var(--th-solid, #191921)); }
+.widget-inline-editor .wie-save { background: #8cc8ff; color: #111820; font-weight: 600; }
+.widget-inline-editor .wie-error { padding: 8px; margin: 0; background: #6b212b; color: #fff; border-radius: 8px; overflow-wrap: anywhere; }
+.widget-inline-editor .wie-preview { min-width: 0; }
+.widget-inline-editor .wie-preview summary { cursor: pointer; color: var(--th-soft, #b8b8c5); }
+.widget-inline-editor .wie-preview .widget-card { margin-top: 8px; }
+.widget-inline-editor .wie-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
